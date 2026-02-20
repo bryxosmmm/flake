@@ -85,7 +85,7 @@ in
       "cursor-style-blink" = false;
       "shell-integration-features" = "no-cursor";
       theme = "Nord";
-      command = "/run/current-system/sw/bin/nu --config ~/.config/nushell/config.nu";
+      command = "${pkgs.nushell}/bin/nu --config ~/.config/nushell/config.nu";
       "cursor-invert-fg-bg" = true;
       "macos-option-as-alt" = "left";
       "background-opacity" = 1.0;
