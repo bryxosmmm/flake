@@ -14,6 +14,7 @@ in
       home.username = user;
       home.stateVersion = "23.11";
       imports = [
+        ./ghostty
         ./helix
       ];
     };
