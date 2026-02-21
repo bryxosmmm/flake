@@ -10,6 +10,7 @@
     zoxide
     jujutsu
     carapace
+    direnv
   ];
 
   # Necessary for using flakes on this system.
