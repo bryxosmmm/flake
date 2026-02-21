@@ -1,6 +1,6 @@
-{ ... }:
+{ lib, ... }:
 {
-  programs.helix.themes = {
+  programs.helix.themes = lib.mkDefault {
     nordicus = {
       inherits = "nord";
 

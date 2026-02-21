@@ -9,6 +9,7 @@
     helix
     zoxide
     jujutsu
+    carapace
   ];
 
   # Necessary for using flakes on this system.

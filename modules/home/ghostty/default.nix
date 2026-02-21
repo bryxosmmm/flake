@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   shaderText = ''
     const float ANIMATION_LEN = 0.0999;
@@ -64,12 +64,12 @@ let
 in
 {
   programs.ghostty = {
-    enable = true;
-    package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
-    enableBashIntegration = false;
-    enableFishIntegration = false;
-    enableZshIntegration = false;
-    settings = {
+    enable = lib.mkDefault true;
+    package = lib.mkDefault (if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty);
+    enableBashIntegration = lib.mkDefault false;
+    enableFishIntegration = lib.mkDefault false;
+    enableZshIntegration = lib.mkDefault false;
+    settings = lib.mkDefault {
       "font-family" = "Jetbrains Mono";
       "font-style-bold" = "Bold";
       "font-style-italic" = "SemiBold Italic";

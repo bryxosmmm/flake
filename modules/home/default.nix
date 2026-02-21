@@ -1,18 +1,18 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   user = config.system.primaryUser;
 in
 {
   users.users.${user} = {
-    home = "/Users/${user}";
+    home = lib.mkDefault "/Users/${user}";
   };
 
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
+    useGlobalPkgs = lib.mkDefault true;
+    useUserPackages = lib.mkDefault true;
     users.${user} = {
-      home.username = user;
-      home.stateVersion = "23.11";
+      home.username = lib.mkDefault user;
+      home.stateVersion = lib.mkDefault "23.11";
       imports = [
         ./ghostty
         ./helix

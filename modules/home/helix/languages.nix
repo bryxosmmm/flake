@@ -1,6 +1,6 @@
-{ ... }:
+{ lib, ... }:
 {
-  programs.helix.languages = {
+  programs.helix.languages = lib.mkDefault {
     language = [
       {
         name = "rust";

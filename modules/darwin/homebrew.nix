@@ -8,7 +8,14 @@
     # Add formulae, casks, and MAS apps here.
     taps = [ ];
     brews = [ "opencode" ];
-    casks = [ "zen" "ghostty" "iina" "emacs-app" "codex" "amneziavpn" ];
+    casks = [
+        "zen"
+        "ghostty"
+        "iina"
+        "emacs-app"
+        "codex"
+        "amneziavpn"
+       ];
     masApps = { };
 
     # Example:

@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   imports = [
     ./languages.nix
@@ -6,8 +6,8 @@
   ];
 
   programs.helix = {
-    enable = true;
-    settings = {
+    enable = lib.mkDefault true;
+    settings = lib.mkDefault {
       theme = "nordicus";
 
       editor = {

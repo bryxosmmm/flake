@@ -15,6 +15,9 @@
       "Kirills-Mac-mini" = {
         username = "kirillgerasimov";
       };
+      "Noutbuk-Gerasimov" = {
+        username = "gerasimovkirill";
+      };
     };
   in
   {
@@ -26,6 +29,7 @@
           nix-darwin.lib.darwinSystem {
             modules = [
               ./darwin.nix
+              (./hosts + \"/${hostname}.nix\")
               home-manager.darwinModules.home-manager
             ];
             specialArgs = {
