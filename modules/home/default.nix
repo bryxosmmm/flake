@@ -14,7 +14,8 @@ in
       home.username = lib.mkDefault user;
       home.stateVersion = lib.mkDefault "23.11";
       imports = [
-        ./ghostty
+        ./direnv.nix
+        ./ghostty.nix
         ./helix
       ];
     };
