@@ -14,7 +14,17 @@
   ];
 
   # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+    extra-trusted-public-keys = [
+      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
+    extra-substituters = [
+      "https://cache.iog.io"
+      "https://cache.nixos.org"
+    ];
+  };
 
   # Enable alternative shell support in nix-darwin.
   # programs.fish.enable = true;
