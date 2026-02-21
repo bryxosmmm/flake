@@ -29,7 +29,7 @@
           nix-darwin.lib.darwinSystem {
             modules = [
               ./darwin.nix
-              (./hosts + \"/${hostname}.nix\")
+              (./hosts + "/${hostname}.nix")
               home-manager.darwinModules.home-manager
             ];
             specialArgs = {
