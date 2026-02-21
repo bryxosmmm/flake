@@ -12,10 +12,10 @@
   outputs = { self, nix-darwin, nixpkgs, home-manager }:
   let
     hosts = {
-      "Kirills-Mac-mini" = {
+      "Valinor" = {
         username = "kirillgerasimov";
       };
-      "Noutbuk-Gerasimov" = {
+      "Nimrodel" = {
         username = "gerasimovkirill";
       };
     };
