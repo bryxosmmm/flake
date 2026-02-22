@@ -4,6 +4,8 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     vim
+    git
+    gh
     nil
     nushell
     helix
@@ -11,6 +13,7 @@
     jujutsu
     carapace
     direnv
+    ayugram-desktop
   ];
 
   # Necessary for using flakes on this system.
