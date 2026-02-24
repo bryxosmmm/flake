@@ -16,6 +16,18 @@
         "auto-format" = true;
       }
       {
+        name = "haskell";
+        roots = ["*.cabal"];
+        formatter = {
+          command = "fourmolu";
+          args = [
+            "--stdin-input-file"
+            "%{buffer_name}"
+          ];
+        };
+        "auto-format" = true;
+      }
+      {
         name = "typst";
         "language-servers" = [ "tinymist" ];
         "auto-format" = true;
