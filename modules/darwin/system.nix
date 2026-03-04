@@ -1,5 +1,9 @@
 { pkgs, self, ... }:
 {
+  nixpkgs.overlays = [
+    (import ../../pkgs/custom)
+  ];
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
@@ -8,6 +12,7 @@
     git
     gh
     nil
+    nixfmt
     nushell
     helix
     zoxide
@@ -15,6 +20,9 @@
     carapace
     direnv
     ayugram-desktop
+    arion
+    mermaid-cli
+    mmdr
   ];
 
   nix.linux-builder = {
@@ -22,7 +30,6 @@
     systems = [ "aarch64-linux" ];
   };
   nix.settings.trusted-users = [ "@admin" ];
-
 
   # Necessary for using flakes on this system.
   nix.settings = {

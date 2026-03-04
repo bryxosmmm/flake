@@ -7,15 +7,22 @@
 
     # Add formulae, casks, and MAS apps here.
     taps = [ ];
-    brews = [ "opencode" ];
+    brews = [
+      "opencode"
+      "colima"
+      "docker"
+      "docker-buildx"
+      "docker-compose"
+    ];
     casks = [
-        "zen"
-        "ghostty"
-        "iina"
-        "emacs-app"
-        "codex"
-        "amneziavpn"
-       ];
+      "zen"
+      "ghostty"
+      "iina"
+      "emacs-app"
+      "codex"
+      "amneziavpn"
+      "vesktop"
+    ];
     masApps = { };
 
     # Example:

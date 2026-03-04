@@ -26,7 +26,11 @@
         };
 
         statusline = {
-          left = [ "mode" "file-name" "spinner" ];
+          left = [
+            "mode"
+            "file-name"
+            "spinner"
+          ];
           center = [ ];
           right = [
             "diagnostics"
@@ -73,8 +77,17 @@
           "C-q" = ":quit";
           "}" = "goto_next_paragraph";
           "{" = "goto_prev_paragraph";
-          "S-j" = [ "extend_to_line_bounds" "delete_selection" "paste_after" ];
-          "S-k" = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ];
+          "S-j" = [
+            "extend_to_line_bounds"
+            "delete_selection"
+            "paste_after"
+          ];
+          "S-k" = [
+            "extend_to_line_bounds"
+            "delete_selection"
+            "move_line_up"
+            "paste_before"
+          ];
         };
         select = {
           "}" = "goto_next_paragraph";

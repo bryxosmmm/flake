@@ -11,13 +11,16 @@
         "language-servers" = [ "ty" ];
         formatter = {
           command = "ruff";
-          args = [ "format" "-" ];
+          args = [
+            "format"
+            "-"
+          ];
         };
         "auto-format" = true;
       }
       {
         name = "haskell";
-        roots = ["*.cabal"];
+        roots = [ "*.cabal" ];
         formatter = {
           command = "fourmolu";
           args = [
@@ -36,8 +39,19 @@
         };
       }
       {
+        name = "nix";
+        "language-servers" = [ "nil" ];
+        "auto-format" = true;
+        formatter = {
+          command = "nixfmt";
+        };
+      }
+      {
         name = "go";
-        roots = [ "go.work" "go.mod" ];
+        roots = [
+          "go.work"
+          "go.mod"
+        ];
         "auto-format" = true;
         formatter = {
           command = "goimports";
@@ -60,7 +74,9 @@
       "rust-analyzer" = {
         command = "rust-analyzer";
         config = {
-          check = { command = "clippy"; };
+          check = {
+            command = "clippy";
+          };
         };
       };
 

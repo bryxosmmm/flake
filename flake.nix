@@ -9,35 +9,39 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nix-darwin, nixpkgs, home-manager }:
-  let
-    hosts = {
-      "Valinor" = {
-        username = "kirillgerasimov";
+  outputs =
+    {
+      self,
+      nix-darwin,
+      nixpkgs,
+      home-manager,
+    }:
+    let
+      hosts = {
+        "Valinor" = {
+          username = "kirillgerasimov";
+        };
+        "Nimrodel" = {
+          username = "gerasimovkirill";
+        };
       };
-      "Nimrodel" = {
-        username = "gerasimovkirill";
-      };
+    in
+    {
+      # Build darwin flake using:
+      # $ darwin-rebuild build --flake .#Kirills-Mac-mini
+      darwinConfigurations = builtins.mapAttrs (
+        hostname: host:
+        nix-darwin.lib.darwinSystem {
+          modules = [
+            ./darwin.nix
+            (./hosts + "/${hostname}.nix")
+            home-manager.darwinModules.home-manager
+          ];
+          specialArgs = {
+            inherit self nixpkgs;
+            username = host.username;
+          };
+        }
+      ) hosts;
     };
-  in
-  {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#Kirills-Mac-mini
-    darwinConfigurations =
-      builtins.mapAttrs
-        (hostname: host:
-          nix-darwin.lib.darwinSystem {
-            modules = [
-              ./darwin.nix
-              (./hosts + "/${hostname}.nix")
-              home-manager.darwinModules.home-manager
-            ];
-            specialArgs = {
-              inherit self nixpkgs;
-              username = host.username;
-            };
-          }
-        )
-        hosts;
-  };
 }
