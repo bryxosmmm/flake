@@ -3,6 +3,7 @@
   imports = [
     ./modules/darwin/system.nix
     ./modules/darwin/homebrew.nix
+    ./modules/darwin/tailscale.nix
     ./modules/home
   ];
 
